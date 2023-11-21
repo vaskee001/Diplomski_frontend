@@ -5,7 +5,8 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from './api/axios'
+import axios from '../api/axios'
+import { Link } from "react-router-dom";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -68,6 +69,7 @@ const Register = () => {
           }
         );
         setSuccess(true);
+        console.log(JSON.stringify(response))
         // clear input fields
     } catch (err){
       if (!err?.response){
@@ -87,7 +89,7 @@ const Register = () => {
         <section>
           <h1>Sucess!</h1>
           <p>
-            <a href="#">Sign in</a>
+            <Link to="/login">Sign In</Link>
           </p>
         </section>
       ) : (
@@ -217,7 +219,7 @@ const Register = () => {
             Already registred? <br />
             <span className="line">
               {/* PUT ROUTER HERE */}
-              <a href="#">Sign In</a>
+              <Link to="/login">Sign In</Link>
             </span>
           </p>
         </section>
