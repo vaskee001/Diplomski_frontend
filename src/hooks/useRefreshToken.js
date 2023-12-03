@@ -14,11 +14,14 @@ const useRefreshToken = () => {
                 withCredentials: true
             });
             setAuth(prev => {
-                return { ...prev, accessToken: response.data.accessToken }
+                return { 
+                    ...prev,
+                    accessToken: response.data.accessToken,
+                    roles: response.data.roles
+                }
             });
             return response.data.accessToken;
         } catch(err){
-            console.log("session expired");
             navigate('/login',{ state : { from: location},replace: true });
         }
     }

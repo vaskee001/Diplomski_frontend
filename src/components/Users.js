@@ -17,7 +17,8 @@ const Users = () => {
                 const response = await axiosPrivate.get('/users',{
                     signal: controller.signal
                 });
-                isMounted && setUsers(response.data);
+                const userNames= response.data.map(user=>user.username);
+                isMounted && setUsers(userNames);
             }catch (err){
                 console.log(err);
             }
@@ -38,7 +39,7 @@ const Users = () => {
         {users?.length
             ? (
                 <ul className="Users">
-                    {users.map((user,i)=><li key={i}> {user?.username}</li>)}
+                    {users.map((user,i)=><li key={i}> {user}</li>)}
                 </ul>
             ) : (
                 <p>No users to display</p>
