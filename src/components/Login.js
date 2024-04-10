@@ -5,6 +5,7 @@ import axios from "../api/axios";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import useInput from "../hooks/useInput";
 import useToggle from "../hooks/useToggle";
+import CommandController from "../api/CommandController";
 
 const LOGIN_URL = "/auth";
 
@@ -30,6 +31,25 @@ const Login = () => {
     setErrMsg("");
   }, [user, pwd]);
 
+  const [output, setOutput] = useState('');
+
+  const handleCommandSubmit = async (command) => {
+    try {
+        // Send command and get response
+        console.log(command);
+        const response = await CommandController.sendCommand(command);
+        // Set output based on the response
+        setOutput(response);
+        // Get Rust output after sending the command
+        const rustOutput = await CommandController.getRustOutput();
+        // Return the Rust output
+        return rustOutput;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -46,7 +66,9 @@ const Login = () => {
       
 
       setAuth({user,accessToken});
-      
+      const rustOutput = await handleCommandSubmit("load "+user);
+      console.log(rustOutput);
+
       //setUser("");
       resetUser();
       setPwd("");

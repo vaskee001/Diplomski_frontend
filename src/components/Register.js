@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios'
 import { Link } from "react-router-dom";
+import CommandController from '../api/CommandController';
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -51,37 +52,73 @@ const Register = () => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
 
-  const handleSubmit = async (e) => {
+
+  //KOMANDA
+const [output, setOutput] = useState('');
+
+const handleCommandSubmit = async (command) => {
+    try {
+        // Send command and get response
+        console.log(command);
+        const response = await CommandController.sendCommand(command);
+        // Set output based on the response
+        setOutput(response);
+        // Get Rust output after sending the command
+        const rustOutput = await CommandController.getRustOutput();
+        // Return the Rust output
+        return rustOutput;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+};
+
+
+
+const handleSubmit = async (e) => {
     e.preventDefault();
     // if button is hacked
     const v1 = USER_REGEX.test(user);
     const v2 = PWD_REGEX.test(pwd);
     if (!v1 || !v2) {
-      setErrMsg("Invalid Entry");
-      return;
+        setErrMsg("Invalid Entry");
+        return;
     }
     try {
-      const response = await axios.post(REGISTER_URL,
-        JSON.stringify({user,pwd}),
-          {
-            headers:{ 'Content-Type': 'application/json'},
-            withCredentials : true
-          }
+        const response = await axios.post(REGISTER_URL,
+            JSON.stringify({ user, pwd }),
+            {
+                headers: { 'Content-Type': 'application/json' },
+                withCredentials: true
+            }
         );
+        // Call handleCommandSubmit and store the Rust output
+        const rustOutput = await handleCommandSubmit("register "+user);
+        const rustOutput2 = await handleCommandSubmit("create kp");
+        const rustOutput3 = await handleCommandSubmit("autosave");
+        const rustOutput4 = await handleCommandSubmit("update");
+        const rustOutput5 = await handleCommandSubmit("reset");
+        console.log(rustOutput);
+        console.log(rustOutput2);
+        console.log(rustOutput3);
+        console.log(rustOutput4);
+        console.log(rustOutput5);
         setSuccess(true);
-        console.log(JSON.stringify(response))
         // clear input fields
-    } catch (err){
-      if (!err?.response){
-        setErrMsg('No Server Response')
-      } else if (err.response?.status === 409) {
-        setErrMsg('Username already exists');
-      } else {
-        setErrMsg('Registration failed');
-      }
-      errRef.current.focus();
+    } catch (err) {
+        if (!err?.response) {
+            setErrMsg('No Server Response')
+        } else if (err.response?.status === 409) {
+            setErrMsg('Username already exists');
+        } else {
+            setErrMsg('Registration failed');
+        }
+        errRef.current.focus();
     }
-  };
+};
+
+
+  
 
   return (
     <>

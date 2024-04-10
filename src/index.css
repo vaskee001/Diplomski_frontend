@@ -141,3 +141,333 @@ button {
     width: 20px;
     margin: 0 5px 2px 2px;
 }
+
+
+/* Chatbox.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Use a clean and widely supported font */
+  }
+  
+  .chatbox-container {
+    display: flex;
+    height: 90vh;
+    width: 90%;
+  }
+  
+  .chatbox-left {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #001f3f, #003366); /* Dark blue gradient */
+    color: #fff; /* White text color */
+  }
+  
+  .chatbox-right {
+    flex: 2;
+    height: 100%; /* Set a fixed height for the right side */
+    overflow: hidden; /* Hide overflow to prevent content from affecting the size */
+    padding: 20px;
+    background: linear-gradient(to bottom, #b3e0ff, #99c2ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #001f3f;
+  }
+  
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #001f3f; /* Dark blue line break below logo */
+  }
+  
+  .searchbar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #fff; /* White border for search bar */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default input focus outline */
+  }
+  
+  .message-selector {
+    /* Add styling for message selector */
+  }
+  
+  .chatbox-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #001f3f; /* Dark blue line break below receiver's name */
+    padding-bottom: 10px;
+    text-align: center; /* Center the receiver's name */
+  }
+  
+  .message-container {
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  .message {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: #4caf50; /* Green background for sent messages */
+    color: #fff; /* White text color for sent messages */
+    align-self: flex-end; /* Align sent messages to the right */
+  }
+  
+  .user {
+    background-color: #e6f7ff;
+    border-radius: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .input-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .message-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px; /* Add margin between input and button */
+    border: 1px solid #ccc; /* Gray border for input */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default input focus outline */
+  }
+  
+  .send-button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    outline: none; /* Remove default button focus outline */
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+    margin-top: 0;
+  }
+  
+  .send-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* ... (previous styles) ... */
+
+/* Media query for screens with a maximum width of 600px */
+@media only screen and (max-width: 600px) {
+  .chatbox-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chatbox-left {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #001f3f, #003366); /* Dark blue gradient */
+    color: #fff; /* White text color */
+  }
+
+  .chatbox-right {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #b3e0ff, #99c2ff); /* Light blue gradient */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #001f3f; /* Dark blue text color */
+    display: none;
+  }
+
+  .chatbox-rightVisible {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom, #b3e0ff, #99c2ff); /* Light blue gradient */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #001f3f; /* Dark blue text color */
+    display: block;
+  }
+
+  .logo {
+    width: 90%; /* Adjust the width as needed */
+    font-size: 18px; /* Decrease font size for small screens */
+    margin-bottom: 10px;
+  }
+
+  .searchbar {
+    width: 90%; /* Adjust the width as needed */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #fff; /* White border for search bar */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default input focus outline */
+  }
+
+  .message-selector {
+    display: none; /* Hide message selector by default on small screens */
+  }
+
+  .chatbox-header {
+    font-size: 16px; /* Decrease font size for small screens */
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+}
+
+
+
+/* Message class for received messages */
+.received-message {
+  padding: 8px; /* Adjust padding as needed */
+  margin-bottom: 8px; /* Adjust margin as needed */
+  border-radius: 15px;
+  background-color: #e6f7ff; /* Light blue background for received messages */
+  color: #001f3f; /* Dark blue text color for received messages */
+  align-self: flex-start; /* Align received messages to the right */
+  max-width: 60%; /* Set the maximum width for received messages in percentage */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent the message from shrinking */
+  flex-basis: auto; /* Set the initial size of the message */
+}
+
+
+/* Message class for sent messages */
+.sent-message {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: #4caf50; /* Green background for sent messages */
+  color: #fff; /* White text color for sent messages */
+  align-self: flex-end; /* Align received messages to the right */
+  max-width: 60%; /* Set the maximum width for received messages in percentage */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent the message from shrinking */
+  flex-basis: auto; /* Set the initial size of the message */
+}
+
+
+/* Add the following styles to your existing CSS */
+
+/* Width and color for the scrollbar track */
+.message-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle on hover */
+.message-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Handle */
+.message-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Track */
+.message-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle on hover for Firefox */
+.message-container:hover {
+  scrollbar-color: #555 #f1f1f1;
+}
+
+/* Handle for Firefox */
+.message-container {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Styles.css (or any CSS file) */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Ensure the overlay is above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  width: 300px; /* Set popup width */
+}
+
+.popup h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333333;
+  text-align: center;
+}
+
+.popup input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.popup button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add smooth transition */
+  width: 100%; /* Make the button full width */
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Styles.css (or any CSS file) */
+
+.create-group-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  margin: 0px auto 10px; /* Center the button horizontally and add some margin from top */
+  display: block; /* Ensure the button takes full width */
+}
+
+.create-group-button:hover {
+  background-color: #0056b3;
+}

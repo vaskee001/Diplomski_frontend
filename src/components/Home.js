@@ -1,4 +1,6 @@
 import React from 'react'
+import useAuth from '../hooks/useAuth';
+import {jwtDecode} from "jwt-decode"
 
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from '../hooks/useLogout';
@@ -9,25 +11,30 @@ const Home = () => {
 
     const signOut = async () => {
         await logout();
-        navigate('/linkpage');
+        navigate('/login');
     }
+
+
+    // PROBA AUTENTIFIKACIJE
+    const {auth}= useAuth();
+
+    const decoded= auth?.accessToken
+        ? jwtDecode(auth.accessToken)
+        : undefined
+    
+    const userAuthorization = decoded?.UserInfo?.username || ""
+
+    console.log(decoded.UserInfo.username);
 
     return (
         <section>
             <h1>Home</h1>
             <br />
             <p>You are logged in!</p>
-            <br />
-            <Link to="/editor">Go to the Editor page</Link>
-            <br />
-            <Link to="/admin">Go to the Admin page</Link>
-            <br />
-            <Link to="/louge">Go to the Lounge</Link>
-            <br />
-            <Link to="/linkpage">Go to the link page</Link>
             <div className="flexGrow">
                 <button onClick={signOut}>Sign Out</button>
             </div>
+            <p>{`Ovo je ${userAuthorization}`}</p>
         </section>
     )
 }
