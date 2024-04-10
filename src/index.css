@@ -193,9 +193,9 @@ body {
     outline: none; /* Remove default input focus outline */
   }
   
-  .message-selector {
+  /* .message-selector { */
     /* Add styling for message selector */
-  }
+  /* } */
   
   .chatbox-header {
     font-size: 18px;
