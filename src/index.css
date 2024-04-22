@@ -412,6 +412,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
 }
 
 .popup {
@@ -471,3 +472,100 @@ body {
 .create-group-button:hover {
   background-color: #0056b3;
 }
+
+
+.group-button {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.group-button:hover {
+  background-color: lightblue;
+}
+
+.group-button.selected {
+  background-color: blue;
+}
+
+
+.input-container .add-button {
+  margin: 0;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 7px;
+  margin-right: 8px;
+  cursor: pointer;
+  width: 40px;
+  
+  outline: none; /* Remove default button focus outline */
+  transition: background-color 0.3s ease; /* Smooth color transition on hover */
+  
+}
+
+.input-container .add-button:hover {
+  background-color: darkred;
+}
+
+.popup {
+  position: relative;
+}
+
+.izlaz-dugme .close-button {
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px; /* Adjust as needed */
+  height: 20px; /* Adjust as needed */
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 14px; /* Adjust as needed */
+  color: white;
+  background-color: red;
+}
+
+.izlaz-dugme .close-button:hover {
+  background-color: darkred;
+}
+
+/* COMBO BOX ZA DODAVANJE U GR */
+.select-container {
+  position: relative;
+}
+
+.select-container select {
+  appearance: none;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.select-container select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+
+.select-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-size: 16px;
+}
+
+.select-container option {
+  background-color: #fff;
+  color: #333;
+}
+

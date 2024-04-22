@@ -97,12 +97,10 @@ const handleSubmit = async (e) => {
         const rustOutput2 = await handleCommandSubmit("create kp");
         const rustOutput3 = await handleCommandSubmit("autosave");
         const rustOutput4 = await handleCommandSubmit("update");
-        const rustOutput5 = await handleCommandSubmit("reset");
         console.log(rustOutput);
         console.log(rustOutput2);
         console.log(rustOutput3);
         console.log(rustOutput4);
-        console.log(rustOutput5);
         setSuccess(true);
         // clear input fields
     } catch (err) {

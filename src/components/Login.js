@@ -67,7 +67,6 @@ const Login = () => {
 
       setAuth({user,accessToken});
       const rustOutput = await handleCommandSubmit("load "+user);
-      console.log(rustOutput);
 
       //setUser("");
       resetUser();
