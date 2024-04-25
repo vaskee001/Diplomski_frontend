@@ -8,11 +8,11 @@ const Unauthorized = () => {
 
     return (
         <section>
-            <h1>Unauthorized</h1>
+            <h1>Nisi autorizovan</h1>
             <br />
-            <p>You do not have access to the requested page.</p>
+            <p>Nemaš pravo da pristupiš stranici.</p>
             <div className="flexGrow">
-                <button onClick={goBack}>Go Back</button>
+                <button onClick={goBack}>Vrati se nazad</button>
             </div>
         </section>
     )

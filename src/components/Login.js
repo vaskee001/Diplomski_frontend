@@ -95,9 +95,9 @@ const Login = () => {
           >
             {errMsg}
           </p>
-          <h1>Sign In</h1>
+          <h1>Prijavi se</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username: </label>
+            <label htmlFor="username">Ime: </label>
             <input
               type="text"
               id="username"
@@ -106,7 +106,7 @@ const Login = () => {
               {...userAttribs}
               required
             />
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Lozinka:</label>
             <input
               type="password"
               id="password"
@@ -114,7 +114,7 @@ const Login = () => {
               value={pwd}
               required
             />
-            <button>Sign In</button>
+            <button>Prijavi se</button>
             <div className="persistCheck">
               <input 
                 type="checkbox" 
@@ -123,15 +123,15 @@ const Login = () => {
                 checked={check}
               />
               <label htmlFor="persist">
-                Trust This Device
+                Veruj ovom računaru
               </label>
             </div>
           </form>
           <p>
-            Need an Account? <br />
+            Potreban ti je nalog? <br />
             <span className="line">
               {/* PUT ROUTER HERE */}
-              <Link to="/register">Sign Up</Link>
+              <Link to="/register">Registruj se</Link>
             </span>
           </p>
         </section>

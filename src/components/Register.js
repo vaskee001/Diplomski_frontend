@@ -122,9 +122,9 @@ const handleSubmit = async (e) => {
     <>
       {success ? (
         <section>
-          <h1>Sucess!</h1>
+          <h1>Uspešna registracija!</h1>
           <p>
-            <Link to="/login">Sign In</Link>
+            <Link to="/login">Prijavi se</Link>
           </p>
         </section>
       ) : (
@@ -136,10 +136,10 @@ const handleSubmit = async (e) => {
           >
             {errMsg}
           </p>
-          <h1>Register</h1>
+          <h1>Kreireaj nalog</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
-              Username:
+              Ime:
               <span className={validName ? "valid" : "hide"}>
                 <FontAwesomeIcon icon={faCheck} />
               </span>
@@ -167,12 +167,12 @@ const handleSubmit = async (e) => {
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              4 to 24 characters. <br />
-              Must begin with a letter. <br />
-              Letters, numbers, underscores, hypens allowed.
+              4 do 24 karaktera. <br />
+              Mora početi slovom. <br />
+              Slova, brojevi, donja crta i crtice su dozvoljene.
             </p>
             <label htmlFor="password">
-              Password:
+              Lozinka:
               <span className={validPwd ? "valid" : "hide"}>
                 <FontAwesomeIcon icon={faCheck} />
               </span>
@@ -197,12 +197,11 @@ const handleSubmit = async (e) => {
               className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              8 to 24 characters.
+              8 do 24 karaktera.
               <br />
-              Must include uppercase and lowercase letters, a number and a
-              special character.
+              Mora sadržati veliko slovo, malo slovo, broj i specijalni karakter.
               <br />
-              Allowed special characters:{" "}
+              Dozvoljeni specijalni karakteri:{" "}
               <span aria-label="exclamation mark">!</span>
               <span aria-label="at symbol">@</span>{" "}
               <span aria-label="hashtag">#</span>{" "}
@@ -211,7 +210,7 @@ const handleSubmit = async (e) => {
             </p>
             {/* CONFIRM SIFREE */}
             <label htmlFor="confirm_pwd">
-              Confirm Password:
+              Potvrda lozinke:
               <span className={validMatch && matchPwd ? "valid" : "hide"}>
                 <FontAwesomeIcon icon={faCheck} />
               </span>
@@ -237,24 +236,24 @@ const handleSubmit = async (e) => {
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
-              Must match the first password input field.
+              Mora da odgovara unetoj lozinci.
             </p>
             {/* BUTTON */}
             <button
               disabled={!validName || !validMatch || !validPwd ? true : false}
               className="submitButton"
             >
-              Sign Up
+              Napravi nalog
             </button>
           </form>
 
           {/* ALREADY REGISTRED */}
 
           <p>
-            Already registred? <br />
+            Već imaš nalog? <br />
             <span className="line">
               {/* PUT ROUTER HERE */}
-              <Link to="/login">Sign In</Link>
+              <Link to="/login">Prijavi se</Link>
             </span>
           </p>
         </section>

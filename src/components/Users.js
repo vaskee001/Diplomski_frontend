@@ -35,14 +35,14 @@ const Users = () => {
 
   return (
     <article>
-        <h1>Users List</h1>
+        <h1>Lista korisnika</h1>
         {users?.length
             ? (
                 <ul className="Users">
                     {users.map((user,i)=><li key={i}> {user}</li>)}
                 </ul>
             ) : (
-                <p>No users to display</p>
+                <p>Nema korisnika</p>
             )
         } 
         <br />

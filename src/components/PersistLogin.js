@@ -39,7 +39,7 @@ const PersistLogin = () => {
     {!persist
       ? <Outlet /> 
       : isLoading 
-      ? <p>Loading...</p> 
+      ? <p>Očitavanje...</p> 
       : <Outlet />
     }
   </>;
