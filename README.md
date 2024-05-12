@@ -13,3 +13,10 @@ Key Features
 Prerequisites
 
 Before running this frontend application, ensure you have the necessary backend server running, which integrates with this frontend for user authentication and messaging functionalities.
+
+Usage
+
+Once the frontend is running, users can access the application via the provided URL. They can then register, log in, create groups, add members, and start messaging securely.
+
+Backend
+Backend for this app is: https://github.com/vaskee001/Diplomski_backend
