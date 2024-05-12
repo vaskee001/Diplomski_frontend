@@ -493,10 +493,10 @@ const Home2 = () => {
         </button>
         {/* Button to create group */}
         <button className="create-group-button" onClick={handleCreateGroup}>
-          Create Group
+          Kreiraj grupu
         </button>
         <div>
-          <h2>Groups for {userAuthorization}</h2>
+          <h2>Grupe korisnika {userAuthorization}</h2>
           <ul>
             {groups.map((group) => (
               <button
@@ -530,7 +530,6 @@ const Home2 = () => {
 
 
       </div>
-      {/* BOLJE NEKI PLACEHOLDER DA SE STAVI */}
       {selectedGroup.length > 0 &&(
       <div className="chatbox-right">
         {/* Placeholder for Group name */}
@@ -556,17 +555,17 @@ const Home2 = () => {
           <input
             type="text"
             className="message-input"
-            placeholder="Type your message..."
+            placeholder="Napiši poruku..."
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
           />
           <button className="send-button" onClick={handleSendMessage}>
-            Send
+            Pošalji
           </button>
           {/* Button for leaving the group */}
           <button className="leave-group-button" onClick={handleLeaveGroup}>
             <FontAwesomeIcon icon={faSignOutAlt} />
-            <span className="leave-group-text">Leave Group</span>
+            <span className="leave-group-text">Napusti grupu</span>
           </button>
           
         </div>
@@ -579,11 +578,11 @@ const Home2 = () => {
                 X
               </button>
             </div>
-            <h2>Leave Group</h2>
-            <p>Are you sure you want to leave the group?</p>
+            <h2>Napusti grupu</h2>
+            <p>Da li si siguran da želiš da nupustiš grupu?</p>
             <div className="modal-buttons">
-              <button onClick={handleConfirmLeaveGroup}>Yes</button>
-              <button onClick={handleCloseLeaveGroupModal}>No</button>
+              <button onClick={handleConfirmLeaveGroup}>Da</button>
+              <button onClick={handleCloseLeaveGroupModal}>Ne</button>
             </div>
           </div>
         </div>
@@ -609,15 +608,15 @@ const Home2 = () => {
           >
             {errMsg}
           </p>
-            <h2>Group name</h2>
+            <h2>Ime grupe</h2>
             <input
               type="text"
               value={groupName}
               onChange={(e) => setGroupName(e.target.value)}
-              placeholder="Enter group name..."
+              placeholder="Unesi ime grupe..."
             />
             <button className="submit-button" onClick={handleSubmitCreateGroupF}>
-              Submit
+              Potvrdi
             </button>
           </div>
         </div>
@@ -632,21 +631,21 @@ const Home2 = () => {
               X
             </button>
           </div>
-          <h2>Participants</h2>
+          <h2>Članovi grupe</h2>
           <ul>
             {participants.map((participant, index) => (
               <li key={index}>{participant}</li>
             ))}
           </ul>
           <div className="select-container">
-            <label htmlFor="nonParticipantsSelect">Add non-participant:</label>
+            <label htmlFor="nonParticipantsSelect">Dodaj novog člana:</label>
             <Select
               id="nonParticipantsSelect"
               value={selectedNonParticipant ? { label: selectedNonParticipant, value: selectedNonParticipant } : null}
               onChange={handleNonParticipantChange}
               options={options}
             />
-            <button onClick={handleSubmitAddParticipant}>Add participant</button>
+            <button onClick={handleSubmitAddParticipant}>Dodaj člana</button>
           </div>
 
         </div>
